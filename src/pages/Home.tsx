@@ -4,6 +4,11 @@ import { useScrollAnimations } from '../hooks/useScrollAnimations';
 export default function Home() {
   useScrollAnimations();
 
+  const scrollToSection = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById('que-es')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <main>
       {/* Hero */}
@@ -19,7 +24,7 @@ export default function Home() {
           </p>
           <div className="hero-buttons animate-in animate-in-delay-3">
             <Link to="/contacto" className="btn-primary">Contactanos</Link>
-            <a href="#que-es" className="btn-outline">Conocé más</a>
+            <a href="#que-es" onClick={scrollToSection} className="btn-outline">Conocé más</a>
           </div>
         </div>
         <div className="scroll-indicator">
